@@ -14,6 +14,8 @@ module "asg_sec_group" {
   ingress_cidr_blocks = [var.vpc_cidr_block]
   ingress_rules       = ["http-80-tcp"]
   egress_rules        = ["all-all"]
+
+  tags = var.tags
 }
 #module auto -scaling group
 module "asg" {
@@ -52,4 +54,7 @@ module "asg" {
   image_id        = var.ami
   instance_type   = var.instance_type
   security_groups = [module.asg_sec_group.security_group_id]
+
+  tags = var.tags
+
 }

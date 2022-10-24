@@ -15,6 +15,7 @@ module "alb_sec_group" {
   ingress_cidr_blocks = ["0.0.0.0/0"]
   ingress_rules       = ["all-all"]
   egress_rules        = ["all-all"]
+  tags = var.tags
 }
 
 module "alb" {
@@ -49,6 +50,8 @@ module "alb" {
       target_group_index = 0
     }
   ]
+
+  tags = var.tags
 }
 
 
