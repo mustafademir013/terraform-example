@@ -5,6 +5,9 @@ variable "alb_create" {
 variable "asg_create" {
    type = bool
 }
+variable "tags" {
+    type = map (string)
+}
 variable "vpc_id" {
     type = string
 }
